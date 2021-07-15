@@ -173,7 +173,7 @@ void interstitial_error(String const lines[], size_t nlines) {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -324,8 +324,8 @@ void self_test() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
-            // g_display->fillScreen(GxEPD_WHITE);
+            g_display->setFullWindow();
+            g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
             int xx = xoff;
@@ -333,6 +333,7 @@ void self_test() {
 
             yy += 1*(H_FSB9 + YM_FSB9);
             g_display->setFont(&FreeSansBold9pt7b);
+            g_display->setTextColor(GxEPD_BLACK);
             g_display->setCursor(xx, yy);
             g_display->println("Running self tests:");
 
@@ -341,12 +342,14 @@ void self_test() {
             for (size_t ii = 0; ii < NLINES; ++ii) {
                 yy += 1*(H_FMB9 + YM_FMB9);
                 g_display->setFont(&FreeMonoBold9pt7b);
+                g_display->setTextColor(GxEPD_BLACK);
                 g_display->setCursor(xx, yy);
                 display_printf("%s", lines[ii].c_str());
             }
 
             yy = 190; // Absolute, stuck to bottom
             g_display->setFont(&FreeSansBold9pt7b);
+            g_display->setTextColor(GxEPD_BLACK);
             g_display->setCursor(xx, yy);
             display_printf("%", GIT_DESCRIBE);
         }
@@ -374,7 +377,7 @@ void intro_screen() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -438,7 +441,7 @@ void seedless_menu() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -525,7 +528,7 @@ void generate_seed() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -645,7 +648,7 @@ void set_network() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -726,7 +729,7 @@ void seedy_menu() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -819,7 +822,7 @@ void display_bip39() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -902,7 +905,7 @@ void config_sskr() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -1034,7 +1037,7 @@ void set_sskr_format() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -1102,7 +1105,7 @@ void display_sskr() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             g_display->setTextColor(GxEPD_BLACK);
 
             int xx = xoff;
@@ -1395,7 +1398,7 @@ bool complete_bip39_checksum(void) {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -1447,7 +1450,7 @@ bool warning_bip39_checksum(void) {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -1505,7 +1508,7 @@ void restore_bip39() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -1697,7 +1700,7 @@ void restore_sskr() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -1851,7 +1854,7 @@ void enter_share() {
         g_display->firstPage();
         do
         {
-            g_display->setPartialWindow(0, 0, 200, 200);
+            g_display->setFullWindow();
             // g_display->fillScreen(GxEPD_WHITE);
             g_display->setTextColor(GxEPD_BLACK);
 
@@ -2011,7 +2014,7 @@ void derivation_path(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2114,7 +2117,7 @@ void custom_derivation_path(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2214,7 +2217,7 @@ void set_xpub_format() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -2278,7 +2281,7 @@ void set_xpub_options() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -2426,7 +2429,7 @@ void display_keys(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2577,7 +2580,7 @@ void display_seed(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2647,7 +2650,7 @@ void set_seed_format() {
     g_display->firstPage();
     do
     {
-        g_display->setPartialWindow(0, 0, 200, 200);
+        g_display->setFullWindow();
         // g_display->fillScreen(GxEPD_WHITE);
         g_display->setTextColor(GxEPD_BLACK);
 
@@ -2699,7 +2702,7 @@ void error_screen(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2748,7 +2751,7 @@ void open_wallet(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2851,7 +2854,7 @@ void show_address(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -2948,7 +2951,7 @@ void set_address_format(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -3055,7 +3058,7 @@ void export_wallet(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -3167,7 +3170,7 @@ void set_export_wallet_format(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
@@ -3265,7 +3268,7 @@ void ur_demo(void) {
       g_display->firstPage();
       do
       {
-          g_display->setPartialWindow(0, 0, 200, 200);
+          g_display->setFullWindow();
           g_display->fillScreen(GxEPD_WHITE);
           g_display->setTextColor(GxEPD_BLACK);
 
